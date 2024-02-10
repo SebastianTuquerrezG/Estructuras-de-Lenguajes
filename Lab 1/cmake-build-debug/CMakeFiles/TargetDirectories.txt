@@ -1,0 +1,3 @@
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab 1/cmake-build-debug/CMakeFiles/Ejercicio1.c.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab 1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
