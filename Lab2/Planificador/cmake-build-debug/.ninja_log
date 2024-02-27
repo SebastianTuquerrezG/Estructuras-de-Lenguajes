@@ -1,0 +1,13 @@
+# ninja log v5
+1	97	7307000543195998	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+98	199	7307000544195919	Planificador.exe	9e5c34f530c7513a
+2	167	7307019652173922	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+168	416	7307019654635009	Planificador.exe	9e5c34f530c7513a
+2	72	7307023119794886	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+73	165	7307023120690276	Planificador.exe	9e5c34f530c7513a
+3	75	7307025047263254	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+76	168	7307025048159946	Planificador.exe	9e5c34f530c7513a
+2	76	7307025210001866	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+77	169	7307025210918067	Planificador.exe	9e5c34f530c7513a
+3	81	7307025984374287	CMakeFiles/Planificador.dir/main.c.obj	21cc1101d3106b8e
+82	174	7307025985270220	Planificador.exe	9e5c34f530c7513a

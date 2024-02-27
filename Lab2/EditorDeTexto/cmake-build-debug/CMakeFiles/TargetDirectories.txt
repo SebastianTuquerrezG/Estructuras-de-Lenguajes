@@ -1,0 +1,3 @@
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/EditorDeTexto/cmake-build-debug/CMakeFiles/EditorDeTexto.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/EditorDeTexto/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/EditorDeTexto/cmake-build-debug/CMakeFiles/rebuild_cache.dir

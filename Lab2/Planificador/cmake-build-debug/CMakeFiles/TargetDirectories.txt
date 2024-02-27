@@ -1,0 +1,3 @@
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/Planificador/cmake-build-debug/CMakeFiles/Planificador.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/Planificador/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/SebasGX/Documents/U/Semestre 8/Estructuras/Estructuras-de-Lenguajes/Lab2/Planificador/cmake-build-debug/CMakeFiles/rebuild_cache.dir

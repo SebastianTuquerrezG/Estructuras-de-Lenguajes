@@ -1,0 +1,13 @@
+# ninja log v5
+0	140	7307027223735848	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+141	323	7307027225547197	StringMatching.exe	65264526111b5e9e
+2	67	7307027463819328	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+67	158	7307027464710461	StringMatching.exe	65264526111b5e9e
+2	74	7307028246806583	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+74	173	7307028247778975	StringMatching.exe	65264526111b5e9e
+1	67	7307028481071744	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+68	160	7307028481972792	StringMatching.exe	65264526111b5e9e
+2	74	7307029684854476	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+75	175	7307029685852457	StringMatching.exe	65264526111b5e9e
+1	69	7307029809463383	CMakeFiles/StringMatching.dir/main.c.obj	b6ca871ca33b678e
+70	163	7307029810354742	StringMatching.exe	65264526111b5e9e
