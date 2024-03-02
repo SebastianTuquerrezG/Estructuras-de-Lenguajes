@@ -1,44 +1,74 @@
-Cedula: 3
-Nombre: 1
-Apellido: 1
-Edad: 30
-Direccion: 1
-Telefono: 1
-Email: 1
-Pregrado: 1
-Posgrado: 1
-Especializacion: Especializacion
-Empresa: 1
-Cargo: 1
-Fecha de inicio: 1
-Fecha de fin: 1
-
-Cedula: 5
-Nombre: 5
-Apellido: 55
-Edad: 5
-Direccion: 5
-Telefono: 5
-Email: 55
-Pregrado: 5
-Posgrado: 5
+Cedula: 123456789
+Nombre: Juan
+Apellido: Perez
+Edad: 35
+Direccion: Calle 123
+Telefono: 555-1234
+Email: juan@example.com
+Pregrado: Informatica
+Posgrado: Ciencias de la Computacion
 Especializacion: Maestria
-Empresa: 55
-Cargo: 5
-Fecha de inicio: 5
-Fecha de fin: 5
+Empresa: ACME
+Cargo: Ing. Software
+Fecha de inicio: 2018
+Fecha de fin: 2022
 
-Cedula: 1
-Nombre: 1
-Apellido: 1
-Edad: 26
-Direccion: 1
-Telefono: 1
-Email: 1
-Pregrado: 1
-Posgrado: 1
-Especializacion: Doctorado
-Empresa: 1
-Cargo: 1
-Fecha de inicio: 1
-Fecha de fin: 1
+Cedula: 987654321
+Nombre: Maria
+Apellido: Gonzalez
+Edad: 28
+Direccion: Avenida 456
+Telefono: 555-5678
+Email: maria@example.com
+Pregrado: Admin. Empresas
+Posgrado: Marketing
+Especializacion: Especializac
+Empresa: MarketSolutions
+Cargo: G. Marketing
+Fecha de inicio: 2017
+Fecha de fin: 2021
+
+Cedula: 112233445
+Nombre: Carlos
+Apellido: Martínez
+Edad: 40
+Direccion: Plaza Mayor 789
+Telefono: 555-9876
+Email: carlos@example.com
+Pregrado: Medicina
+Posgrado: Cirugía
+Especializacion: Maestria
+Empresa: Hospital Central
+Cargo: Cirujano
+Fecha de inicio: 2010
+Fecha de fin: 2023
+
+Cedula: 554433221
+Nombre: Laura
+Apellido: Sánchez
+Edad: 32
+Direccion: Paseo del Bosque 234
+Telefono: 555-8765
+Email: laura@example.com
+Pregrado: Psicología
+Posgrado: Psicoterapia
+Especializacion: Especializac
+Empresa: Centro de Salud Mental
+Cargo: Psicoterapeuta
+Fecha de inicio: 2015
+Fecha de fin: 2020
+
+Cedula: 998877665
+Nombre: Alejandro
+Apellido: López
+Edad: 27
+Direccion: Carrera 56 Este 567, Ciudad
+Telefono: 555-4321
+Email: alejandro@example.com
+Pregrado: Comunicacion Social
+Posgrado: Maestría en Periodismo
+Especializacion: Maestria
+Empresa: Diario Nac
+Cargo: Periodista
+Fecha de inicio: 2018
+Fecha de fin: 2022

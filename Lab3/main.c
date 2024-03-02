@@ -2,36 +2,35 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINES 300
-#define MAX_LENGTH 30
+#define MAX_LENGTH 800
 
 typedef struct historiaLaboral{
-    char empresa[20];
-    char cargo[15];
-    char fechaInicio[10];
-    char fechaFin[10];
+    char empresa[MAX_LENGTH];
+    char cargo[MAX_LENGTH];
+    char fechaInicio[MAX_LENGTH];
+    char fechaFin[MAX_LENGTH];
     struct historiaLaboral* next;
 } historiaLaboral;
 
 typedef struct pregrado{
-    char titulo[20];
+    char titulo[MAX_LENGTH];
     struct pregrado* next;
 } pregrado;
 
 typedef struct posgrado{
-    char titulo[20];
-    char especializacion[20];
+    char titulo[MAX_LENGTH];
+    char especializacion[MAX_LENGTH];
     struct posgrado* next;
 } posgrado;
 
 typedef struct persona{
-    char cedula[12];
-    char nombre[15];
-    char apellido[15];
-    char edad[3];
-    char direccion[15];
-    char telefono[10];
-    char email[20];
+    char cedula[MAX_LENGTH];
+    char nombre[MAX_LENGTH];
+    char apellido[MAX_LENGTH];
+    char edad[MAX_LENGTH];
+    char direccion[MAX_LENGTH];
+    char telefono[MAX_LENGTH];
+    char email[MAX_LENGTH];
     pregrado *pregrados;
     posgrado *posgrados;
     historiaLaboral *historiasLaborales;
