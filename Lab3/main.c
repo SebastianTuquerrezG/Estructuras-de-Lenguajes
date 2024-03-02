@@ -20,7 +20,7 @@ typedef struct pregrado{
 
 typedef struct posgrado{
     char titulo[20];
-    char especializacion[15];
+    char especializacion[20];
     struct posgrado* next;
 } posgrado;
 
@@ -459,6 +459,113 @@ void loadDocument() {
     printf("La información se ha cargado correctamente desde el archivo personas.txt.\n");
 }
 
+void mostrarPersonasPorProfesion(char *profesion) {
+    // Eliminar el carácter de nueva línea del string profesion
+    profesion[strcspn(profesion, "\n")] = '\0';
+
+    persona *current = head;
+    int encontradas = 0;
+
+    while (current != NULL) {
+        historiaLaboral *historia_temp = current->historiasLaborales;
+        while (historia_temp != NULL) {
+            if (strcmp(historia_temp->cargo, profesion) == 0) {
+                encontradas++;
+                printf("Cedula: %s\n", current->cedula);
+                printf("Nombre: %s\n", current->nombre);
+                printf("Apellido: %s\n", current->apellido);
+                printf("Empresa: %s\n", historia_temp->empresa);
+                printf("Cargo: %s\n", historia_temp->cargo);
+                printf("\n");
+                break; // No es necesario seguir buscando en las demás historias laborales
+            }
+            historia_temp = historia_temp->next;
+        }
+        current = current->next;
+    }
+
+    if (encontradas == 0) {
+        printf("No se encontraron personas con la profesion '%s'.\n", profesion);
+    }
+}
+
+void mostrarPersonasMas25() {
+    persona *current = head;
+    int encontradas = 0;
+
+    while (current != NULL) {
+        int edad = atoi(current->edad);
+        if (edad > 25) {
+            encontradas++;
+            printf("Cedula: %s\n", current->cedula);
+            printf("Nombre: %s\n", current->nombre);
+            printf("Apellido: %s\n", current->apellido);
+            printf("Edad: %s\n", current->edad);
+            printf("\n");
+        }
+        current = current->next;
+    }
+
+    if (encontradas == 0) {
+        printf("No se encontraron personas con más de 25 años.\n");
+    }
+}
+
+void mostrarPersonasPorEmpresa(char *empresa) {
+    // Eliminar el carácter de nueva línea del string empresa
+    empresa[strcspn(empresa, "\n")] = '\0';
+
+    persona *current = head;
+    int encontradas = 0;
+
+    while (current != NULL) {
+        historiaLaboral *historia_temp = current->historiasLaborales;
+        while (historia_temp != NULL) {
+            if (strcmp(historia_temp->empresa, empresa) == 0) {
+                encontradas++;
+                printf("Cedula: %s\n", current->cedula);
+                printf("Nombre: %s\n", current->nombre);
+                printf("Apellido: %s\n", current->apellido);
+                printf("Empresa: %s\n", historia_temp->empresa);
+                printf("Cargo: %s\n", historia_temp->cargo);
+                printf("\n");
+                break; // No es necesario seguir buscando en las demás historias laborales
+            }
+            historia_temp = historia_temp->next;
+        }
+        current = current->next;
+    }
+
+    if (encontradas == 0) {
+        printf("No se encontraron personas que trabajen en la empresa '%s'.\n", empresa);
+    }
+}
+
+void contarNivelesDeEducacion() {
+    persona *current = head;
+    int especializacion = 0, maestria = 0, doctorado = 0;
+
+    while (current != NULL) {
+        // Contar los niveles de educación de cada persona
+        posgrado *posgrado_temp = current->posgrados;
+        while (posgrado_temp != NULL) {
+            if (strstr(posgrado_temp->especializacion, "Especializac") != NULL) {
+                especializacion++;
+            } else if (strstr(posgrado_temp->especializacion, "Maestria") != NULL) {
+                maestria++;
+            } else if (strstr(posgrado_temp->especializacion, "Doctorado") != NULL) {
+                doctorado++;
+            }
+            posgrado_temp = posgrado_temp->next;
+        }
+
+        current = current->next;
+    }
+
+    printf("Cantidad de personas con especializacion: %d\n", especializacion);
+    printf("Cantidad de personas con maestria: %d\n", maestria);
+    printf("Cantidad de personas con doctorado: %d\n", doctorado);
+}
 
 int main() {
     int choice;
@@ -491,8 +598,44 @@ int main() {
                 sortRecordsByCedula();
                 break;
             case 4:
-                //TODO
+                printf("\nConsultas:\n");
+                printf("1. Mostrar todas las personas con una profesion determinada\n");
+                printf("2. Mostrar todas las personas con mas de 25 anos\n");
+                printf("3. Mostrar todas las personas que trabajan en una empresa\n");
+                printf("4. Mostrar cuantas personas tienen especializacion, maestria y doctorado\n");
+                printf("Elija una consulta: ");
+                int consulta;
+                scanf("%d", &consulta);
+                getchar(); // Limpiar el buffer de entrada
+
+                switch (consulta) {
+                    case 1:
+                        // Consulta 1: Mostrar todas las personas con una profesión determinada
+                        printf("Ingrese la profesion: ");
+                        char profesion[MAX_LENGTH];
+                        fgets(profesion, MAX_LENGTH, stdin);
+                        mostrarPersonasPorProfesion(profesion);
+                        break;
+                    case 2:
+                        // Consulta 2: Mostrar todas las personas con más de 25 años
+                        mostrarPersonasMas25();
+                        break;
+                    case 3:
+                        // Consulta 3: Mostrar todas las personas que trabajan en una empresa
+                        printf("Ingrese el nombre de la empresa: ");
+                        char empresa[MAX_LENGTH];
+                        fgets(empresa, MAX_LENGTH, stdin);
+                        mostrarPersonasPorEmpresa(empresa);
+                        break;
+                    case 4:
+                        // Consulta 4: Mostrar cuantas personas tienen especializacion, maestria y doctorado
+                        contarNivelesDeEducacion();
+                        break;
+                    default:
+                        printf("Consulta invalida.\n");
+                }
                 break;
+
             case 5:
                 saveDocument();
                 break;
