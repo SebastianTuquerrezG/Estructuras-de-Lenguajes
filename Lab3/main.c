@@ -369,86 +369,94 @@ void saveDocument() {
 void loadDocument() {
     FILE *file = fopen("./personas.txt", "r");
     if (file == NULL) {
-        printf("Error al abrir el archivo para lectura.\n");
+        printf("Error al abrir el archivo para leer.\n");
         return;
     }
 
     char line[MAX_LENGTH];
-    persona *new_person = NULL;
+    persona *current = NULL;
 
     while (fgets(line, MAX_LENGTH, file) != NULL) {
         if (strstr(line, "Cedula:") != NULL) {
-            new_person = malloc(sizeof(persona));
+            persona *new_person = malloc(sizeof(persona));
             if (new_person == NULL) {
                 printf("Error al reservar memoria.\n");
+                fclose(file);
                 return;
             }
-            memset(new_person, 0, sizeof(persona)); // Inicializar la estructura a ceros
+            sscanf(line, "Cedula: %[^\n]", new_person->cedula);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Nombre: %[^\n]", new_person->nombre);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Apellido: %[^\n]", new_person->apellido);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Edad: %[^\n]", new_person->edad);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Direccion: %[^\n]", new_person->direccion);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Telefono: %[^\n]", new_person->telefono);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Email: %[^\n]", new_person->email);
+
+            // Initialize other fields to NULL
+            new_person->pregrados = NULL;
+            new_person->posgrados = NULL;
+            new_person->historiasLaborales = NULL;
+
+            // Link the new person to the list
+            new_person->next = NULL;
             if (head == NULL) {
                 head = new_person;
+            } else {
+                current->next = new_person;
             }
-            lines++;
-        }
-
-        if (new_person != NULL) {
-            if (strstr(line, "Cedula:") != NULL) {
-                strcpy(new_person->cedula, strchr(line, ':') + 2); // Copia el valor después de ':'
-            } else if (strstr(line, "Nombre:") != NULL) {
-                strcpy(new_person->nombre, strchr(line, ':') + 2);
-            } else if (strstr(line, "Apellido:") != NULL) {
-                strcpy(new_person->apellido, strchr(line, ':') + 2);
-            } else if (strstr(line, "Edad:") != NULL) {
-                strcpy(new_person->edad, strchr(line, ':') + 2);
-            } else if (strstr(line, "Direccion:") != NULL) {
-                strcpy(new_person->direccion, strchr(line, ':') + 2);
-            } else if (strstr(line, "Telefono:") != NULL) {
-                strcpy(new_person->telefono, strchr(line, ':') + 2);
-            } else if (strstr(line, "Email:") != NULL) {
-                strcpy(new_person->email, strchr(line, ':') + 2);
-            } else if (strstr(line, "Pregrado:") != NULL) {
-                pregrado *pregrado_temp = malloc(sizeof(pregrado));
-                if (pregrado_temp == NULL) {
-                    printf("Error al reservar memoria.\n");
-                    return;
-                }
-                memset(pregrado_temp, 0, sizeof(pregrado)); // Inicializar la estructura a ceros
-                strcpy(pregrado_temp->titulo, strchr(line, ':') + 2);
-                pregrado_temp->next = new_person->pregrados;
-                new_person->pregrados = pregrado_temp;
-            } else if (strstr(line, "Posgrado:") != NULL) {
-                posgrado *posgrado_temp = malloc(sizeof(posgrado));
-                if (posgrado_temp == NULL) {
-                    printf("Error al reservar memoria.\n");
-                    return;
-                }
-                memset(posgrado_temp, 0, sizeof(posgrado)); // Inicializar la estructura a ceros
-                strcpy(posgrado_temp->titulo, strchr(line, ':') + 2);
-                fgets(line, MAX_LENGTH, file); // Leer la siguiente línea para especialización
-                strcpy(posgrado_temp->especializacion, strchr(line, ':') + 2);
-                posgrado_temp->next = new_person->posgrados;
-                new_person->posgrados = posgrado_temp;
-            } else if (strstr(line, "Empresa:") != NULL) {
-                historiaLaboral *historia_temp = malloc(sizeof(historiaLaboral));
-                if (historia_temp == NULL) {
-                    printf("Error al reservar memoria.\n");
-                    return;
-                }
-                memset(historia_temp, 0, sizeof(historiaLaboral)); // Inicializar la estructura a ceros
-                strcpy(historia_temp->empresa, strchr(line, ':') + 2);
-                fgets(line, MAX_LENGTH, file); // Leer el cargo
-                strcpy(historia_temp->cargo, strchr(line, ':') + 2);
-                fgets(line, MAX_LENGTH, file); // Leer la fecha de inicio
-                strcpy(historia_temp->fechaInicio, strchr(line, ':') + 2);
-                fgets(line, MAX_LENGTH, file); // Leer la fecha de fin
-                strcpy(historia_temp->fechaFin, strchr(line, ':') + 2);
-                historia_temp->next = new_person->historiasLaborales;
-                new_person->historiasLaborales = historia_temp;
+            current = new_person;
+        } else if (strstr(line, "Pregrado:") != NULL) {
+            pregrado *new_pregrado = malloc(sizeof(pregrado));
+            if (new_pregrado == NULL) {
+                printf("Error al reservar memoria.\n");
+                fclose(file);
+                return;
             }
+            sscanf(line, "Pregrado: %[^\n]", new_pregrado->titulo);
+            // Link the new pregrado to the current person's list
+            new_pregrado->next = current->pregrados;
+            current->pregrados = new_pregrado;
+        } else if (strstr(line, "Posgrado:") != NULL) {
+            posgrado *new_posgrado = malloc(sizeof(posgrado));
+            if (new_posgrado == NULL) {
+                printf("Error al reservar memoria.\n");
+                fclose(file);
+                return;
+            }
+            sscanf(line, "Posgrado: %[^\n]", new_posgrado->titulo);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Especializacion: %[^\n]", new_posgrado->especializacion);
+            // Link the new posgrado to the current person's list
+            new_posgrado->next = current->posgrados;
+            current->posgrados = new_posgrado;
+        } else if (strstr(line, "Empresa:") != NULL) {
+            historiaLaboral *new_historia = malloc(sizeof(historiaLaboral));
+            if (new_historia == NULL) {
+                printf("Error al reservar memoria.\n");
+                fclose(file);
+                return;
+            }
+            sscanf(line, "Empresa: %[^\n]", new_historia->empresa);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Cargo: %[^\n]", new_historia->cargo);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Fecha de inicio: %[^\n]", new_historia->fechaInicio);
+            fgets(line, MAX_LENGTH, file); // Read the next line
+            sscanf(line, "Fecha de fin: %[^\n]", new_historia->fechaFin);
+            // Link the new historia to the current person's list
+            new_historia->next = current->historiasLaborales;
+            current->historiasLaborales = new_historia;
         }
     }
 
     fclose(file);
-    printf("Archivo cargado exitosamente.\n");
+    printf("La información se ha cargado correctamente desde el archivo personas.txt.\n");
 }
 
 

@@ -1,4 +1,4 @@
-Cedula: 1
+Cedula: 3
 Nombre: 1
 Apellido: 1
 Edad: 1
@@ -28,3 +28,17 @@ Cargo: 5
 Fecha de inicio: 5
 Fecha de fin: 5
 
+Cedula: 1
+Nombre: 1
+Apellido: 1
+Edad: 1
+Direccion: 1
+Telefono: 1
+Email: 1
+Pregrado: 1
+Posgrado: 1
+Especializacion: 1
+Empresa: 1
+Cargo: 1
+Fecha de inicio: 1
+Fecha de fin: 1
