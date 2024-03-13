@@ -1,0 +1,5 @@
+C:\Users\SebasGX\Documents\U\Semestre 8\Estructuras\Estructuras-de-Lenguajes\Demo F#\FireOfDoom\FireOfDoom\obj\Debug\net8.0\FireOfDoom.fsproj.AssemblyReference.cache
+C:\Users\SebasGX\Documents\U\Semestre 8\Estructuras\Estructuras-de-Lenguajes\Demo F#\FireOfDoom\FireOfDoom\obj\Debug\net8.0\FireOfDoom.AssemblyInfoInputs.cache
+C:\Users\SebasGX\Documents\U\Semestre 8\Estructuras\Estructuras-de-Lenguajes\Demo F#\FireOfDoom\FireOfDoom\obj\Debug\net8.0\FireOfDoom.AssemblyInfo.fs
+C:\Users\SebasGX\Documents\U\Semestre 8\Estructuras\Estructuras-de-Lenguajes\Demo F#\FireOfDoom\FireOfDoom\obj\Debug\net8.0\FireOfDoom.fsproj.CoreCompileInputs.cache
+C:\Users\SebasGX\Documents\U\Semestre 8\Estructuras\Estructuras-de-Lenguajes\Demo F#\FireOfDoom\FireOfDoom\obj\Debug\net8.0\FireOfDoom.sourcelink.json

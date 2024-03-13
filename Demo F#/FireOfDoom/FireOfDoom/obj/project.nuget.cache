@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QmNlrnkg13bWgEpTGnXxlE/bW+nD0M9gNS7DG8Lmtp0fL8VNg0XDNwtd70Qh1gudRbi2ZFan2U/b6ToX+ejDlQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SebasGX\\Documents\\U\\Semestre 8\\Estructuras\\Estructuras-de-Lenguajes\\Demo F#\\FireOfDoom\\FireOfDoom\\FireOfDoom.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SebasGX\\.nuget\\packages\\fsharp.core\\8.0.200\\fsharp.core.8.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}

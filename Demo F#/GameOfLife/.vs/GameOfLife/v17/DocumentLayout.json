@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\SebasGX\\Documents\\U\\Semestre 8\\Estructuras\\Estructuras-de-Lenguajes\\Demo F#\\GameOfLife\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FC50E-5B86-4ACB-A955-7D05E19B6776}|GameOfLife\\GameOfLife.fsproj|c:\\users\\sebasgx\\documents\\u\\semestre 8\\estructuras\\estructuras-de-lenguajes\\demo f#\\gameoflife\\gameoflife\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{2B1FC50E-5B86-4ACB-A955-7D05E19B6776}|GameOfLife\\GameOfLife.fsproj|solutionrelative:gameoflife\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 242,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.fs",
+              "DocumentMoniker": "C:\\Users\\SebasGX\\Documents\\U\\Semestre 8\\Estructuras\\Estructuras-de-Lenguajes\\Demo F#\\GameOfLife\\GameOfLife\\Program.fs",
+              "RelativeDocumentMoniker": "GameOfLife\\Program.fs",
+              "ToolTip": "C:\\Users\\SebasGX\\Documents\\U\\Semestre 8\\Estructuras\\Estructuras-de-Lenguajes\\Demo F#\\GameOfLife\\GameOfLife\\Program.fs",
+              "RelativeToolTip": "GameOfLife\\Program.fs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-06T00:13:14.022Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 158,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cloVykxm/qr3eAmg2XdfoYa/LOGLU28/9Qv06KNwRH5lygeHHWevgUNfBnZ8hdNs8LQVVo2OxoWWnwk+lPPlXQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SebasGX\\Documents\\U\\Semestre 8\\Estructuras\\Estructuras-de-Lenguajes\\Demo F#\\GameOfLife\\GameOfLife\\GameOfLife.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SebasGX\\.nuget\\packages\\fsharp.core\\8.0.200\\fsharp.core.8.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
