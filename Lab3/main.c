@@ -4,6 +4,9 @@
 
 #define MAX_LENGTH 800
 
+/**
+ * @brief Estructura para almacenar las historias laborales de una persona.
+ */
 typedef struct historiaLaboral{
     char empresa[MAX_LENGTH];
     char cargo[MAX_LENGTH];
@@ -12,17 +15,26 @@ typedef struct historiaLaboral{
     struct historiaLaboral* next;
 } historiaLaboral;
 
+/**
+ * @brief Estructura para almacenar los títulos de pregrado de una persona.
+ */
 typedef struct pregrado{
     char titulo[MAX_LENGTH];
     struct pregrado* next;
 } pregrado;
 
+/**
+ * @brief Estructura para almacenar los título y la especialización de los posgrado de una persona.
+ */
 typedef struct posgrado{
     char titulo[MAX_LENGTH];
     char especializacion[MAX_LENGTH];
     struct posgrado* next;
 } posgrado;
 
+/**
+ * @brief Estructura para almacenar la información personal y académica de una persona.
+ */
 typedef struct persona{
     char cedula[MAX_LENGTH];
     char nombre[MAX_LENGTH];
@@ -37,10 +49,13 @@ typedef struct persona{
     struct persona* next;
 } persona;
 
-persona *head = NULL;
+persona *head = NULL; ///< Puntero al primer elemento de la lista de personas
 
 int lines = 0;
 
+/**
+ * @brief Agrega una nueva persona al documento.
+ */
 void addLine() {
     persona *new_person = malloc(sizeof(persona));
     if (new_person == NULL) {
@@ -64,7 +79,7 @@ void addLine() {
     printf("Email: ");
     fgets(new_person->email, MAX_LENGTH, stdin);
 
-    // Agregar pregrados
+    ///<Agregar pregrados
     new_person->pregrados = NULL;
     pregrado *pregrado_temp = NULL;
     do {
@@ -86,7 +101,7 @@ void addLine() {
         }
     } while (1);
 
-    // Agregar posgrados
+    ///<Agregar posgrados
     new_person->posgrados = NULL;
     posgrado *posgrado_temp = NULL;
     int posgrados_index;
@@ -107,7 +122,7 @@ void addLine() {
         new_person->posgrados = posgrado_temp;
     }
 
-    // Agregar historias laborales
+    ///<Agregar historias laborales
     new_person->historiasLaborales = NULL;
     historiaLaboral *historia_temp = NULL;
     int historias_index;
@@ -136,6 +151,10 @@ void addLine() {
     head = new_person;
 }
 
+/**
+ * @brief Elimina una persona del documento.
+ * @param lineNum Número de línea correspondiente a la persona a eliminar.
+ */
 void deleteLine(int lineNum) {
     if (lineNum < 1 || lineNum > lines) {
         printf("Numero de linea invalido.\n");
@@ -157,7 +176,7 @@ void deleteLine(int lineNum) {
         return;
     }
 
-    // Liberar la memoria de los pregrados
+    ///< Liberar la memoria de los pregrados
     pregrado *pregrado_temp = current->pregrados;
     while (pregrado_temp != NULL) {
         pregrado *temp = pregrado_temp;
@@ -165,7 +184,7 @@ void deleteLine(int lineNum) {
         free(temp);
     }
 
-    // Liberar la memoria de los posgrados
+    ///<Liberar la memoria de los posgrados
     posgrado *posgrado_temp = current->posgrados;
     while (posgrado_temp != NULL) {
         posgrado *temp = posgrado_temp;
@@ -173,7 +192,7 @@ void deleteLine(int lineNum) {
         free(temp);
     }
 
-    // Liberar la memoria de las historias laborales
+    ///<Liberar la memoria de las historias laborales
     historiaLaboral *historia_temp = current->historiasLaborales;
     while (historia_temp != NULL) {
         historiaLaboral *temp = historia_temp;
@@ -191,6 +210,9 @@ void deleteLine(int lineNum) {
     lines--;
 }
 
+/**
+ * @brief Muestra el contenido completo del documento en memoria.
+ */
 void displayDocument() {
     printf("Documento:\n");
     persona *current = head;
@@ -213,7 +235,6 @@ void displayDocument() {
         }
 
         printf("   Posgrados:\n");
-
         posgrado *posgrado_temp = current->posgrados;
         while (posgrado_temp != NULL) {
             printf("       - %s\n", posgrado_temp->titulo);
@@ -222,7 +243,6 @@ void displayDocument() {
         }
 
         printf("   Historias Laborales:\n");
-
         historiaLaboral *historia_temp = current->historiasLaborales;
         while (historia_temp != NULL) {
             printf("       - Empresa: %s\n", historia_temp->empresa);
@@ -237,6 +257,9 @@ void displayDocument() {
     }
 }
 
+/**
+ * @brief Ordena las personas en el documento por número de cédula usando BubbleSort.
+ */
 void sortRecordsByCedula() {
     if (head == NULL || head->next == NULL) {
         printf("No hay registros para ordenar.\n");
@@ -262,15 +285,15 @@ void sortRecordsByCedula() {
         while (current->next != NULL) {
             nextNode = current->next;
             if (strcmp(current->cedula, nextNode->cedula) > 0) {
-                // Swap cedula
+                ///<Swap cedula
                 strcpy(tempCedula, current->cedula);
                 strcpy(current->cedula, nextNode->cedula);
                 strcpy(nextNode->cedula, tempCedula);
-                // Swap nombre
+                ///< nombre
                 strcpy(tempNombre, current->nombre);
                 strcpy(current->nombre, nextNode->nombre);
                 strcpy(nextNode->nombre, tempNombre);
-                // Swap apellido
+                ///<Swap apellido
                 strcpy(tempApellido, current->apellido);
                 strcpy(current->apellido, nextNode->apellido);
                 strcpy(nextNode->apellido, tempApellido);
@@ -278,27 +301,27 @@ void sortRecordsByCedula() {
                 strcpy(tempEdad, current->edad);
                 strcpy(current->edad, nextNode->edad);
                 strcpy(nextNode->edad, tempEdad);
-                // Swap direccion
+                ///< Swap direccion
                 strcpy(tempDireccion, current->direccion);
                 strcpy(current->direccion, nextNode->direccion);
                 strcpy(nextNode->direccion, tempDireccion);
-                // Swap telefono
+                ///< Swap telefono
                 strcpy(tempTelefono, current->telefono);
                 strcpy(current->telefono, nextNode->telefono);
                 strcpy(nextNode->telefono, tempTelefono);
-                // Swap email
+                ///< Swap email
                 strcpy(tempEmail, current->email);
                 strcpy(current->email, nextNode->email);
                 strcpy(nextNode->email, tempEmail);
-                // Swap pregrados
+                ///<Swap pregrados
                 tempPregrado = current->pregrados;
                 current->pregrados = nextNode->pregrados;
                 nextNode->pregrados = tempPregrado;
-                // Swap posgrados
+                ///< Swap posgrados
                 tempPosgrado = current->posgrados;
                 current->posgrados = nextNode->posgrados;
                 nextNode->posgrados = tempPosgrado;
-                // Swap historias laborales
+                ///< Swap historias laborales
                 tempHistoria = current->historiasLaborales;
                 current->historiasLaborales = nextNode->historiasLaborales;
                 nextNode->historiasLaborales = tempHistoria;
@@ -311,6 +334,9 @@ void sortRecordsByCedula() {
     printf("Registros ordenados por cedula de forma ascendente.\n");
 }
 
+/**
+ * @brief Guarda el contenido del documento en un archivo de texto.
+ */
 void saveDocument() {
     FILE *file = fopen("./personas.txt", "w");
     if (file == NULL) {
@@ -328,14 +354,14 @@ void saveDocument() {
         fprintf(file, "Telefono: %s", current->telefono);
         fprintf(file, "Email: %s", current->email);
 
-        // Escribir pregrados
+        ///< Escribir pregrados
         pregrado *pregrado_temp = current->pregrados;
         while (pregrado_temp != NULL) {
             fprintf(file, "Pregrado: %s", pregrado_temp->titulo);
             pregrado_temp = pregrado_temp->next;
         }
 
-        // Escribir posgrados
+        ///<  Escribir posgrados
         posgrado *posgrado_temp = current->posgrados;
         while (posgrado_temp != NULL) {
             fprintf(file, "Posgrado: %s", posgrado_temp->titulo);
@@ -343,7 +369,7 @@ void saveDocument() {
             posgrado_temp = posgrado_temp->next;
         }
 
-        // Escribir historias laborales
+        ///<  Escribir historias laborales
         historiaLaboral *historia_temp = current->historiasLaborales;
         while (historia_temp != NULL) {
             fprintf(file, "Empresa: %s", historia_temp->empresa);
@@ -353,7 +379,7 @@ void saveDocument() {
             historia_temp = historia_temp->next;
         }
 
-        fprintf(file, "\n"); // Separador entre personas
+        fprintf(file, "\n"); ///< Separador entre personas
         current = current->next;
     }
 
@@ -365,6 +391,9 @@ void saveDocument() {
     }
 }
 
+/**
+ * @brief Carga el contenido de un archivo de texto en el documento.
+ */
 void loadDocument() {
     FILE *file = fopen("./personas.txt", "r");
     if (file == NULL) {
@@ -397,12 +426,12 @@ void loadDocument() {
             fgets(line, MAX_LENGTH, file); // Read the next line
             sscanf(line, "Email: %[^\n]", new_person->email);
 
-            // Initialize other fields to NULL
+            ///< Inicializar los punteros de pregrados, posgrados y historias laborales
             new_person->pregrados = NULL;
             new_person->posgrados = NULL;
             new_person->historiasLaborales = NULL;
 
-            // Link the new person to the list
+            ///< Agregar la nueva persona a la cabecera
             new_person->next = NULL;
             if (head == NULL) {
                 head = new_person;
@@ -418,7 +447,7 @@ void loadDocument() {
                 return;
             }
             sscanf(line, "Pregrado: %[^\n]", new_pregrado->titulo);
-            // Link the new pregrado to the current person's list
+            ///< Agregar el nuevo pregrado a la lista de pregrados de la persona actual
             new_pregrado->next = current->pregrados;
             current->pregrados = new_pregrado;
         } else if (strstr(line, "Posgrado:") != NULL) {
@@ -431,7 +460,7 @@ void loadDocument() {
             sscanf(line, "Posgrado: %[^\n]", new_posgrado->titulo);
             fgets(line, MAX_LENGTH, file); // Read the next line
             sscanf(line, "Especializacion: %[^\n]", new_posgrado->especializacion);
-            // Link the new posgrado to the current person's list
+            ///< Agregar el nuevo posgrado a la lista de posgrados de la persona actual
             new_posgrado->next = current->posgrados;
             current->posgrados = new_posgrado;
         } else if (strstr(line, "Empresa:") != NULL) {
@@ -442,13 +471,13 @@ void loadDocument() {
                 return;
             }
             sscanf(line, "Empresa: %[^\n]", new_historia->empresa);
-            fgets(line, MAX_LENGTH, file); // Read the next line
+            fgets(line, MAX_LENGTH, file);
             sscanf(line, "Cargo: %[^\n]", new_historia->cargo);
-            fgets(line, MAX_LENGTH, file); // Read the next line
+            fgets(line, MAX_LENGTH, file);
             sscanf(line, "Fecha de inicio: %[^\n]", new_historia->fechaInicio);
-            fgets(line, MAX_LENGTH, file); // Read the next line
+            fgets(line, MAX_LENGTH, file);
             sscanf(line, "Fecha de fin: %[^\n]", new_historia->fechaFin);
-            // Link the new historia to the current person's list
+            ///< Agregar la nueva historia laboral a la lista de historias laborales de la persona actual
             new_historia->next = current->historiasLaborales;
             current->historiasLaborales = new_historia;
         }
@@ -458,8 +487,12 @@ void loadDocument() {
     printf("La información se ha cargado correctamente desde el archivo personas.txt.\n");
 }
 
+/**
+ * @brief Muestra todas las personas que tienen una profesión determinada.
+ * @param profesion La profesión a buscar.
+ */
 void mostrarPersonasPorProfesion(char *profesion) {
-    // Eliminar el carácter de nueva línea del string profesion
+    ///< Eliminar el carácter de nueva línea del string profesion
     profesion[strcspn(profesion, "\n")] = '\0';
 
     persona *current = head;
@@ -476,7 +509,7 @@ void mostrarPersonasPorProfesion(char *profesion) {
                 printf("Empresa: %s\n", historia_temp->empresa);
                 printf("Cargo: %s\n", historia_temp->cargo);
                 printf("\n");
-                break; // No es necesario seguir buscando en las demás historias laborales
+                break; ///< No es necesario seguir buscando en las demás historias laborales
             }
             historia_temp = historia_temp->next;
         }
@@ -488,6 +521,9 @@ void mostrarPersonasPorProfesion(char *profesion) {
     }
 }
 
+/**
+ * @brief Muestra todas las personas con más de 25 años.
+ */
 void mostrarPersonasMas25() {
     persona *current = head;
     int encontradas = 0;
@@ -510,8 +546,12 @@ void mostrarPersonasMas25() {
     }
 }
 
+/**
+ * @brief Muestra todas las personas que trabajan en una empresa específica.
+ * @param empresa El nombre de la empresa a buscar.
+ */
 void mostrarPersonasPorEmpresa(char *empresa) {
-    // Eliminar el carácter de nueva línea del string empresa
+    ///< / Eliminar el carácter de nueva línea del string empresa
     empresa[strcspn(empresa, "\n")] = '\0';
 
     persona *current = head;
@@ -528,7 +568,7 @@ void mostrarPersonasPorEmpresa(char *empresa) {
                 printf("Empresa: %s\n", historia_temp->empresa);
                 printf("Cargo: %s\n", historia_temp->cargo);
                 printf("\n");
-                break; // No es necesario seguir buscando en las demás historias laborales
+                break; ///<  No es necesario seguir buscando en las demás historias laborales
             }
             historia_temp = historia_temp->next;
         }
@@ -540,12 +580,15 @@ void mostrarPersonasPorEmpresa(char *empresa) {
     }
 }
 
+/**
+ * @brief Cuenta cuántas personas tienen especialización, maestría y doctorado.
+ */
 void contarNivelesDeEducacion() {
     persona *current = head;
     int especializacion = 0, maestria = 0, doctorado = 0;
 
     while (current != NULL) {
-        // Contar los niveles de educación de cada persona
+        ///< Contar los niveles de educación de cada persona
         posgrado *posgrado_temp = current->posgrados;
         while (posgrado_temp != NULL) {
             if (strstr(posgrado_temp->especializacion, "Especializac") != NULL) {
@@ -582,7 +625,7 @@ int main() {
         printf("8. Salir\n");
         printf("Elija una opcion: ");
         scanf("%d", &choice);
-        getchar(); // Clear newline character from input buffer
+        getchar(); ///< Limpiar el buffer de entrada
 
         switch (choice) {
             case 1:
@@ -605,29 +648,29 @@ int main() {
                 printf("Elija una consulta: ");
                 int consulta;
                 scanf("%d", &consulta);
-                getchar(); // Limpiar el buffer de entrada
+                getchar(); ///< Limpiar el buffer de entrada
 
                 switch (consulta) {
                     case 1:
-                        // Consulta 1: Mostrar todas las personas con una profesión determinada
+                        ///< Consulta 1: Mostrar todas las personas con una profesión determinada
                         printf("Ingrese la profesion: ");
                         char profesion[MAX_LENGTH];
                         fgets(profesion, MAX_LENGTH, stdin);
                         mostrarPersonasPorProfesion(profesion);
                         break;
                     case 2:
-                        // Consulta 2: Mostrar todas las personas con más de 25 años
+                        ///<Consulta 2: Mostrar todas las personas con más de 25 años
                         mostrarPersonasMas25();
                         break;
                     case 3:
-                        // Consulta 3: Mostrar todas las personas que trabajan en una empresa
+                        ///< Consulta 3: Mostrar todas las personas que trabajan en una empresa
                         printf("Ingrese el nombre de la empresa: ");
                         char empresa[MAX_LENGTH];
                         fgets(empresa, MAX_LENGTH, stdin);
                         mostrarPersonasPorEmpresa(empresa);
                         break;
                     case 4:
-                        // Consulta 4: Mostrar cuantas personas tienen especializacion, maestria y doctorado
+                        ///< Consulta 4: Mostrar cuantas personas tienen especializacion, maestria y doctorado
                         contarNivelesDeEducacion();
                         break;
                     default:
